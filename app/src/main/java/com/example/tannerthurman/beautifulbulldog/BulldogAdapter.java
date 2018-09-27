@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
 
+import io.realm.RealmResults;
+
 public class BulldogAdapter extends RecyclerView.Adapter<BulldogAdapter.BulldogViewHolder> {
     private Context context;
-    private ArrayList<Bulldog> bulldogs;
+    private RealmResults<Bulldog> bulldogs;
     private RecyclerViewClickListener mListener;
 
-    public BulldogAdapter(Context context, ArrayList<Bulldog> dataSet, RecyclerViewClickListener clickListener){
+    public BulldogAdapter(Context context, RealmResults<Bulldog> dataSet, RecyclerViewClickListener clickListener){
         this.context = context;
         this.bulldogs = dataSet;
         this.mListener = clickListener;
