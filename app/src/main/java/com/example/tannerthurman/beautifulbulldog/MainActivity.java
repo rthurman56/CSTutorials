@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+    public User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
