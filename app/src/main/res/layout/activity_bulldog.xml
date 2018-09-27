@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BulldogListActivity">
+    tools:context=".BulldogActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/bulldog_list"
-        android:layout_width="417dp"
-        android:layout_height="627dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="246dp" />
 </android.support.constraint.ConstraintLayout>
