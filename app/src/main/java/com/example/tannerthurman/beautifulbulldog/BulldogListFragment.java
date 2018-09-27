@@ -36,12 +36,24 @@ public class BulldogListFragment extends Fragment {
         Realm realm = Realm.getDefaultInstance();
         final RealmResults<Bulldog> bulldogs = realm.where(Bulldog.class).findAll();
         bulldogList = (RecyclerView)view.findViewById(R.id.bulldog_list);
-
         layoutManager = new LinearLayoutManager(getContext());
         bulldogList.setLayoutManager(layoutManager);
+        refreshList();
 
-        final MainActivity mainActivity = (MainActivity) this.getActivity();
+        return view;
 
+    }
+
+    public void onResume() {
+        super.onResume();
+        refreshList();
+    }
+
+    private void refreshList(){
+        Realm realm = Realm.getDefaultInstance();
+        final RealmResults<Bulldog> bulldogs = realm.where(Bulldog.class).findAll();
+
+        final MainActivity mainActivity = (MainActivity)this.getActivity();
         RecyclerViewClickListener listener = new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -50,15 +62,11 @@ public class BulldogListFragment extends Fragment {
                 intent.putExtra("username", mainActivity.user.getUsername());
                 intent.putExtra("bulldog", bulldog.getId());
                 startActivity(intent);
-
             }
         };
 
-        bulldogAdapter = new BulldogAdapter(getContext(), bulldogs, listener);
-        bulldogList.setAdapter(bulldogAdapter);
-
-        return view;
-
+        BulldogAdapter adapter = new BulldogAdapter(getActivity(), bulldogs, listener);
+        bulldogList.setAdapter(adapter);
     }
 
 }
